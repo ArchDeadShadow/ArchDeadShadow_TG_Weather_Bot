@@ -9,7 +9,7 @@ bot.start((ctx) => ctx.reply('Welcome'))
 bot.on('message', async (ctx) => {
     // if (ctx.message.location) {
     console.log(ctx.message.location);
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${ctx.message.location.latitude}&lon=${ctx.message.location.longitude}&units=metric&appid==${process.env.WEATHER_API}`
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${ctx.message.location.latitude}&lon=${ctx.message.location.longitude}&units=metric&appid=${process.env.WEATHER_API}`
     const response = await axios.get(url);
     console.log(response);
     ctx.reply(`${response.data.name}: ${response.data.main.temp} °C`);
